@@ -31,7 +31,7 @@ app.post('/addHero', urlencodedParser, bpJason, function(req, res){
   console.log('hit addHero post', req.body);
   // object from server
   var sentHero = req.body;
-  // new document for collection furbabies
+  // new document for collection
   var newHero = new heroes({
     alias: sentHero.alias,
     first_name: sentHero.first_name,
@@ -63,11 +63,7 @@ app.delete('/removeHero', urlencodedParser, bpJason, function(req, res){
     }
   });
 });
-
-
-
-
-
+// static file and HTML
 app.get("/*", function(req,res){
     console.log("Here is the property: ", req.params[0]);
     var file = req.params[0] || "/views/index.html";
