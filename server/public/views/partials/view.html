@@ -1,7 +1,7 @@
 <h3>Pi Hero Roster:</h3>
 <div ng-controller='viewController'>
   <p ng-repeat = 'x in dataToDom'>
-    Alias: {{x.alias}} Name:{{x.first_name}} {{x.last_name}} Residence: {{x.city}} Super Power: {{x.power_name}}
-    <button ng-click='removePet()'>Vacation earned</button>
+    <strong>Alias:</strong> {{x.alias}} <br> <strong>Name:</strong> {{x.first_name}} {{x.last_name}} <br> <strong>Residence:</strong> {{x.city}} <br> <strong>Super Power:</strong> {{x.power_name}}
+    <br><button ng-click='removeHero()'>Vacation earned</button>
   </p>
 </div>
