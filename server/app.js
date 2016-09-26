@@ -16,7 +16,29 @@ app.use(express.static('public'));
 app.listen(port, function(){
   console.log('server up on port:', port);
 });
-
+// add hero post
+app.post('/addHero', urlencodedParser, bpJason, function(req, res){
+  console.log('hit addHero post', req.body);
+  // object from server
+  var sentHero = req.body;
+  // new document for collection furbabies
+  var newHero = new heroes({
+    name: sentHero.petName,
+    animal: sentPet.animal,
+    age: sentPet.age,
+    imageUrl: sentPet.imageUrl
+  });
+  // save to database
+  newHero.save(function(err){
+    if(err){
+    console.log('error:',err);
+    res.sendStatus(500);
+    }else{
+      console.log('successfully created new pet');
+      res.sendStatus(200);
+  }
+  });
+});
 
 
 
