@@ -9,7 +9,7 @@ myApp.controller("addHeroController", ["$scope", "$http", function( $scope, $htt
       first_name: $scope.first_nameIn,
       last_name: $scope.last_nameIn,
       city: $scope.cityIn,
-      power_name: $scope.power_nameIn
+      power_name: $scope.power_nameIn.type
     }; // end new hero
     console.log(newHero);
     //post call to add hero
@@ -21,4 +21,17 @@ myApp.controller("addHeroController", ["$scope", "$http", function( $scope, $htt
       console.log( response);
     }); // end response
   }; // end addHero
+
+  $http({
+    method: 'GET',
+    url: '/enum'
+  }).then(function successCallback(response) {
+    $scope.enum = response.data.map(function(type) {
+      return {type: type };
+    });
+    $scope.selected = $scope.enum[0];
+    console.log('enum =', $scope.enum);
+  }, function errorCallback(response) {
+    console.log('err');
+  });
 }]); // end controller

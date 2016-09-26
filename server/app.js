@@ -50,7 +50,6 @@ app.post('/addHero', urlencodedParser, bpJason, function(req, res){
   }
   });
 });
-
 // delete route
 app.delete('/removeHero', urlencodedParser, bpJason, function(req, res){
   console.log('hit remove hero:', req.body);
@@ -62,6 +61,11 @@ app.delete('/removeHero', urlencodedParser, bpJason, function(req, res){
       res.send(200);
     }
   });
+});
+
+app.get('/enum', function(req, res) {
+  console.log('enum get hit');
+  res.send(heroes.schema.path('power_name').enumValues);
 });
 // static file and HTML
 app.get("/*", function(req,res){
