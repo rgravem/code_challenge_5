@@ -23,6 +23,6 @@ myApp.controller("viewController", ["$scope", "$http", "$route", function($scope
       console.log('got this back on delete:', response);
     }); // end response
 
-    $route.reload();
+    location.reload();
   };// end remove hero
 }]);// end controller
